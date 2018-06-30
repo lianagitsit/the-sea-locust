@@ -29,7 +29,7 @@ const Navbar = () => (
                 </li>
                 <li className="nav-item">
                     <Link
-                        to="/"
+                        to="/enroll"
                         className={ 
                             window.location.pathname === "/" 
                             ? "nav-link active" : "nav-link" }
