@@ -5,7 +5,7 @@ import Course from "./pages/Course";
 import Background from "./pages/Background";
 import Testimonials from "./pages/Testimonials";
 import Enroll from "./pages/Enroll";
-
+import EnrollSuccess from "./pages/EnrollSuccess";
 import NoMatch from "./pages/NoMatch";
 
 import Navbar from "./components/Navbar";
@@ -22,6 +22,7 @@ const App = () => (
         <Route exact path="/background" component={Background} />
         <Route exact path="/testimonials" component={Testimonials} />
         <Route exact path="/enroll" component={Enroll} />
+        <Route exact path="/enroll-success" component={EnrollSuccess} />
         <Route component={NoMatch} />
       </Switch>
     </div>

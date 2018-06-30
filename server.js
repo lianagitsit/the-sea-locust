@@ -16,6 +16,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+require("./routes/api-routes.js")(app);
 
 // Send every request to the React app
 // Define any API routes before this runs

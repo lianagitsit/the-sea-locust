@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+
 import { Input, FormBtn } from "../../components/Form";
+import API from "../../utils/API"
 
 import "./Enroll.css";
 
@@ -13,7 +16,8 @@ class Enroll extends Component {
         firstExam: "",
         referralSource: "",
         onTLS: ""
-    }
+    };
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -23,18 +27,7 @@ class Enroll extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        // if (this.state.title && this.state.author) {
-        //     API.saveBook({
-        //         title: this.state.title,
-        //         author: this.state.author,
-        //         synopsis: this.state.synopsis
-        //     })
-        //         .then(res => this.loadBooks())
-        //         .catch(err => console.log(err));
-        // }
-    };
 
-    render() {
         const {
             firstName,
             lastName,
@@ -46,7 +39,40 @@ class Enroll extends Component {
             onTLS
         } = this.state;
 
+        API.saveStudent({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phone: phone,
+            school: school,
+            firstExam: firstExam,
+            referralSource: referralSource,
+            onTLS: onTLS
+        })
+        .then(res => {
+            this.setState({submitted: true});
+        })
+        .catch(err => console.log(err));
+    };
+
+    render() {
+        const {
+            firstName,
+            lastName,
+            email,
+            phone,
+            school,
+            firstExam,
+            referralSource,
+            onTLS,
+            submitted
+        } = this.state;
+
         const requiredInfo = (firstName && lastName && email && phone && school);
+
+        if (submitted){
+            return <Redirect to="/enroll-success" />
+        }
 
         return (
             <div className="container">
