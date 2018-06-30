@@ -15,14 +15,14 @@
 }
 
 .moreBackground__container {
-    background-color: #1B66A4;
+    background-color: #e9ecef;
     height: 75px;
     padding: 20px 0;
 }
 
 .moreBackground__text {
     font-size: 20px;
-    color: white;
+    color: rgb(136, 136, 136);
     font-weight: bold;
 }
 
