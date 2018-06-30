@@ -1,0 +1,14 @@
+.background__container {
+    background-color: rgb(153, 204, 245);
+    height: 75px;
+    padding: 20px 0;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 2px 5px #888888 inset;
+}
+
+.learnMore-text {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none !important;
+}
