@@ -1,4 +1,9 @@
 node_modules/
 .env
 .DS_Store
-the-sea-locust.zip
+the-sea-locust-2.zip
+notes.md
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
