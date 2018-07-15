@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import {
-    // HelpBlock,
+    HelpBlock,
     FormGroup,
     FormControl,
     ControlLabel,
     Button
 } from "react-bootstrap";
 
-import API from "../../utils/API"
+import { Input, FormBtn } from "../../components/Form";
+import API from "../../utils/API.js"
 
 import "./Enroll.css";
 
@@ -55,18 +56,18 @@ class Enroll extends Component {
             referralSource: referralSource,
             onTLS: onTLS
         })
-        .then(res => {
-            // const email = { email: res.data.email };
-            console.log(res);
-            // API.sendEmail(email).then(res => {
-            //     console.log("BACK FROM SENDING EMAIL")
-            //     console.log(res);
-            // })
-            //     .catch(err => console.log(err));
+            .then(res => {
+                const email = { email: res.data.email };
+                console.log(res);
+                API.sendEmail(email).then(res => {
+                    console.log("BACK FROM SENDING EMAIL")
+                    console.log(res);
+                })
+                    .catch(err => console.log(err));
 
-            this.setState({ submitted: true });
-        })
-        .catch(err => console.log(err));
+                this.setState({ submitted: true });
+            })
+            .catch(err => console.log(err));
     };
 
     render() {

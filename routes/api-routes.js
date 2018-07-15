@@ -1,6 +1,15 @@
 require("dotenv").config();
 var db = require("../models");
 
+var AWS = require('aws-sdk');
+AWS.config.update({region: 'us-east-1'});
+// Remember to set a default IAM; 
+// the SDK looks for the default credentials and if none are set it breaks
+var credentials = new AWS.SharedIniFileCredentials({profile: 'liana'});
+AWS.config.credentials = credentials;
+
+var params = require("../ses");
+
 module.exports = (app) => {
     app.post("/api/students", (req, res) => {
       db.Student.create({
@@ -15,5 +24,29 @@ module.exports = (app) => {
       }).then(dbStudent => {
           res.json(dbStudent);
       })
-    })
+    });
+
+    app.get("/api/all", (req, res) => {
+      db.Student.findAll().then( dbStudent => {
+        res.json(dbStudent);
+      });
+    });
+
+    app.post("/api/email", (req, res) => {
+      params.Destination.ToAddresses[0] = req.body.email;
+      console.log("POSTED TO API")
+      // console.log(params);
+
+      var sendPromise = new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
+
+      // Handle promise's fulfilled/rejected states
+      sendPromise.then(
+        function(result) {
+          console.log(result.MessageId);
+          res.json(result);
+        }).catch(
+          function(err) {
+          console.error(err, err.stack);
+        });
+    })   
 }
