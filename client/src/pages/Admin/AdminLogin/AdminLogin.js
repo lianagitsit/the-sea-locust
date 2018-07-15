@@ -68,7 +68,7 @@ class AdminLogin extends Component {
                         <ControlLabel>Password</ControlLabel>
                         <FormControl
                             autoFocus
-                            type="password"
+                            type="text"
                             name="password"
                             value={password}
                             onChange={this.handleInputChange}
@@ -77,6 +77,7 @@ class AdminLogin extends Component {
                     <Button
                         disabled={!requiredInfo}
                         bsStyle="primary"
+                        type="submit"
                     >
                         Login
                     </Button>

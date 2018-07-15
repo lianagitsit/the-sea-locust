@@ -5,9 +5,7 @@ import { Navbar, Nav, NavItem } from "react-bootstrap";
 const Header = props => (
     <Navbar collapseOnSelect>
         <Navbar.Header>
-            <Navbar.Brand>
-                <Link to="/">TSL</Link>
-            </Navbar.Brand>
+            <Navbar.Brand><Link to="/">TSL</Link></Navbar.Brand>
             <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>

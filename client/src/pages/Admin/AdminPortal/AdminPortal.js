@@ -11,11 +11,12 @@ class AdminPortal extends Component {
     loadStudents = () => {
         API.getStudents().then(res => {
             // console.log(res);
-            const rows = res.data.map( student => (
+            const rows = res.data.map( (student, index) => (
                 <Student 
                     firstName={student.firstName}
                     lastName={student.lastName}
                     email={student.email}
+                    key={index}
                 />
             ))
             this.setState({students: rows});
@@ -24,6 +25,7 @@ class AdminPortal extends Component {
     }
 
     sendEmail = () => {
+        const email = {email: "coelomate@gmail.com"};
         API.sendEmail(email).then(res => {
             console.log("BACK FROM SENDING EMAIL")
             console.log(res);
