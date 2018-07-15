@@ -1,5 +1,3 @@
-// var AWS = require('aws-sdk');
-// AWS.config.update({region: 'us-east-1'});
 
 // Create sendEmail params 
 const params = {
@@ -9,7 +7,6 @@ const params = {
       //   /* more items */
       // ],
       ToAddresses: [
-      //   'coelomate@gmail.com',
         /* more items */
       ]
     },
@@ -35,17 +32,5 @@ const params = {
       /* more items */
     ],
   };
-             
-  // // Create the promise and SES service object
-  // var sendPromise = new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
-  
-  // // Handle promise's fulfilled/rejected states
-  // sendPromise.then(
-  //   function(data) {
-  //     console.log(data.MessageId);
-  //   }).catch(
-  //     function(err) {
-  //     console.error(err, err.stack);
-  //   });
-  
+
   module.exports = params;

@@ -24,7 +24,6 @@ class AdminPortal extends Component {
     }
 
     sendEmail = () => {
-        const email = {email: "coelomate@gmail.com"};
         API.sendEmail(email).then(res => {
             console.log("BACK FROM SENDING EMAIL")
             console.log(res);
