@@ -1,32 +1,62 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Course from "./pages/Course";
-import Background from "./pages/Background";
-import Testimonials from "./pages/Testimonials";
-import Enroll from "./pages/Enroll";
-import EnrollSuccess from "./pages/EnrollSuccess";
-import NoMatch from "./pages/NoMatch";
+import React, { Component } from "react";
+import { withRouter, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+// import { withRouter } from "react-router-dom";
+import Routes from "./Routes";
+// import { Auth } from "aws-amplify";
+
+import Header from "./components/Header";
 
 import "./App.css";
 
-const App = () => (
-  <Router>
-    <div>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/course" component={Course} />
-        <Route exact path="/background" component={Background} />
-        <Route exact path="/testimonials" component={Testimonials} />
-        <Route exact path="/enroll" component={Enroll} />
-        <Route exact path="/enroll-success" component={EnrollSuccess} />
-        <Route component={NoMatch} />
-      </Switch>
-    </div>
-  </Router>
-);
+class App extends Component {
+  state = {
+    isAuthenticated: false,
+    isAuthenticating: true
+  };
 
-export default App;
+  // async componentDidMount() {
+  //   try {
+  //     if (await Auth.currentSession()) {
+  //       this.userHasAuthenticated(true);
+  //     }
+  //   }
+  //   catch(e) {
+  //     if (e !== 'No current user') {
+  //       alert(e);
+  //     }
+  //   }
+  
+  //   this.setState({ isAuthenticating: false });
+  // }
+
+  // userHasAuthenticated = authenticated => {
+  //   this.setState({ isAuthenticated: authenticated });
+  // }
+
+  // handleLogout = async event => {
+  //   await Auth.signOut();
+  
+  //   this.userHasAuthenticated(false);
+
+  //   this.props.history.push("/admin");
+  // }
+
+  render() {
+    const childProps = {
+      isAuthenticated: this.state.isAuthenticated,
+      userHasAuthenticated: this.userHasAuthenticated,
+      // handleLogout: this.handleLogout
+    };
+
+    return (
+      // !this.state.isAuthenticating &&
+      <div>
+        <Header isAuthenticated={this.state.isAuthenticated} />
+        <Routes childProps={childProps} />
+      </div>
+    )
+  }
+};
+
+export default withRouter(App);

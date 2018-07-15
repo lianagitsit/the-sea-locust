@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import {
+    // HelpBlock,
+    FormGroup,
+    FormControl,
+    ControlLabel,
+    Button
+} from "react-bootstrap";
 
-import { Input, FormBtn } from "../../components/Form";
 import API from "../../utils/API"
 
 import "./Enroll.css";
@@ -50,7 +56,15 @@ class Enroll extends Component {
             onTLS: onTLS
         })
         .then(res => {
-            this.setState({submitted: true});
+            // const email = { email: res.data.email };
+            console.log(res);
+            // API.sendEmail(email).then(res => {
+            //     console.log("BACK FROM SENDING EMAIL")
+            //     console.log(res);
+            // })
+            //     .catch(err => console.log(err));
+
+            this.setState({ submitted: true });
         })
         .catch(err => console.log(err));
     };
@@ -70,68 +84,110 @@ class Enroll extends Component {
 
         const requiredInfo = (firstName && lastName && email && phone && school);
 
-        if (submitted){
+        if (submitted) {
             return <Redirect to="/enroll-success" />
         }
 
         return (
             <div className="container">
                 <h1>Enroll</h1>
-                <form>
-                    <Input
-                        value={firstName}
-                        onChange={this.handleInputChange}
-                        name="firstName"
-                        placeholder="First name (required)"
-                    />
-                    <Input
-                        value={lastName}
-                        onChange={this.handleInputChange}
-                        name="lastName"
-                        placeholder="Last name (required)"
-                    />
-                    <Input
-                        value={email}
-                        onChange={this.handleInputChange}
-                        name="email"
-                        placeholder="Email address (required)"
-                    />
-                    <Input
-                        value={phone}
-                        onChange={this.handleInputChange}
-                        name="phone"
-                        placeholder="Cell phone (required)"
-                    />
-                    <Input
-                        value={school}
-                        onChange={this.handleInputChange}
-                        name="school"
-                        placeholder="Law school (required)"
-                    />
-                    <Input
-                        value={firstExam}
-                        onChange={this.handleInputChange}
-                        name="firstExam"
-                        placeholder="First exam (MM/DD/YYY)"
-                    />
-                    <Input
-                        value={referralSource}
-                        onChange={this.handleInputChange}
-                        name="referralSource"
-                        placeholder="Referral source (optional)"
-                    />
-                    <Input
-                        value={onTLS}
-                        onChange={this.handleInputChange}
-                        name="onTLS"
-                        placeholder="TLS username (optional)"
-                    />   
-                    <FormBtn
+                <form onSubmit={this.handleFormSubmit}>
+
+                    <FormGroup controlId="firstName">
+                        <ControlLabel>First name</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="text"
+                            name="firstName"
+                            value={firstName}
+                            onChange={this.handleInputChange}
+                        />
+                    </FormGroup>
+
+                    <FormGroup controlId="lastName">
+                        <ControlLabel>Last name</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="text"
+                            name="lastName"
+                            value={lastName}
+                            onChange={this.handleInputChange}
+                        />
+                    </FormGroup>
+
+                    <FormGroup controlId="email">
+                        <ControlLabel>Email</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="email"
+                            name="email"
+                            value={email}
+                            onChange={this.handleInputChange}
+                        />
+                    </FormGroup>
+
+                    <FormGroup controlId="phone">
+                        <ControlLabel>Phone number</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="text"
+                            name="phone"
+                            value={phone}
+                            onChange={this.handleInputChange}
+                        />
+                    </FormGroup>
+
+                    <FormGroup controlId="school">
+                        <ControlLabel>Name of law school</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="text"
+                            name="school"
+                            value={school}
+                            onChange={this.handleInputChange}
+                        />
+                    </FormGroup>
+
+                    <FormGroup controlId="firstExam">
+                        <ControlLabel>Date of first exam</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="date"
+                            name="firstExam"
+                            value={firstExam}
+                            onChange={this.handleInputChange}
+                        />
+                    </FormGroup>
+
+                    <FormGroup controlId="referralSource">
+                        <ControlLabel>Referral source</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="text"
+                            name="referralSource"
+                            value={referralSource}
+                            onChange={this.handleInputChange}
+                        />
+                    </FormGroup>
+
+                    <FormGroup controlId="onTLS">
+                        <ControlLabel>TLS username</ControlLabel>
+                        <FormControl
+                            autoFocus
+                            type="text"
+                            name="onTLS"
+                            value={onTLS}
+                            onChange={this.handleInputChange}
+                        />
+                    </FormGroup>
+
+                    <Button
                         disabled={!requiredInfo}
-                        onClick={this.handleFormSubmit}
+                        type="submit"
+                        bsStyle="success"
                     >
                         Enroll
-                    </FormBtn>             
+                    </Button>
                 </form>
             </div>
         );
