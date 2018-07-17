@@ -8,8 +8,6 @@ AWS.config.update({region: 'us-east-1'});
 var credentials = new AWS.SharedIniFileCredentials({profile: 'liana'});
 AWS.config.credentials = credentials;
 
-var params = require("../ses");
-
 module.exports = (app) => {
     app.post("/api/students", (req, res) => {
       db.Student.create({
@@ -33,7 +31,7 @@ module.exports = (app) => {
     });
 
     app.post("/api/email", (req, res) => {
-      params.Destination.ToAddresses[0] = req.body.email;
+      var params = require("../ses")(req.body);
       console.log("POSTED TO API")
       // console.log(params);
 

@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import {
-    HelpBlock,
     FormGroup,
     FormControl,
     ControlLabel,
     Button
 } from "react-bootstrap";
 
-import { Input, FormBtn } from "../../components/Form";
 import API from "../../utils/API.js"
 
 import "./Enroll.css";
@@ -57,9 +55,9 @@ class Enroll extends Component {
             onTLS: onTLS
         })
             .then(res => {
-                const email = { email: res.data.email };
+                const student = { firstName: res.data.firstName, email: res.data.email };
                 console.log(res);
-                API.sendEmail(email).then(res => {
+                API.sendEmail(student).then(res => {
                     console.log("BACK FROM SENDING EMAIL")
                     console.log(res);
                 })
@@ -98,6 +96,7 @@ class Enroll extends Component {
                         <ControlLabel>First name</ControlLabel>
                         <FormControl
                             autoFocus
+                            required
                             type="text"
                             name="firstName"
                             value={firstName}
@@ -108,7 +107,7 @@ class Enroll extends Component {
                     <FormGroup controlId="lastName">
                         <ControlLabel>Last name</ControlLabel>
                         <FormControl
-                            autoFocus
+                            required
                             type="text"
                             name="lastName"
                             value={lastName}
@@ -119,29 +118,32 @@ class Enroll extends Component {
                     <FormGroup controlId="email">
                         <ControlLabel>Email</ControlLabel>
                         <FormControl
-                            autoFocus
+                            required
                             type="email"
                             name="email"
                             value={email}
                             onChange={this.handleInputChange}
+                            placeholder="name@email.com"
                         />
                     </FormGroup>
 
                     <FormGroup controlId="phone">
                         <ControlLabel>Phone number</ControlLabel>
                         <FormControl
-                            autoFocus
-                            type="text"
+                            required
+                            type="tel"
+                            pattern="^\d{3}-\d{3}-\d{4}$"
                             name="phone"
                             value={phone}
                             onChange={this.handleInputChange}
+                            placeholder="555-555-5555"
                         />
                     </FormGroup>
 
                     <FormGroup controlId="school">
                         <ControlLabel>Name of law school</ControlLabel>
                         <FormControl
-                            autoFocus
+                            required
                             type="text"
                             name="school"
                             value={school}
@@ -152,7 +154,6 @@ class Enroll extends Component {
                     <FormGroup controlId="firstExam">
                         <ControlLabel>Date of first exam</ControlLabel>
                         <FormControl
-                            autoFocus
                             type="date"
                             name="firstExam"
                             value={firstExam}
@@ -163,10 +164,10 @@ class Enroll extends Component {
                     <FormGroup controlId="referralSource">
                         <ControlLabel>Referral source</ControlLabel>
                         <FormControl
-                            autoFocus
                             type="text"
                             name="referralSource"
                             value={referralSource}
+                            placeholder="optional"
                             onChange={this.handleInputChange}
                         />
                     </FormGroup>
@@ -174,10 +175,10 @@ class Enroll extends Component {
                     <FormGroup controlId="onTLS">
                         <ControlLabel>TLS username</ControlLabel>
                         <FormControl
-                            autoFocus
                             type="text"
                             name="onTLS"
                             value={onTLS}
+                            placeholder="optional"
                             onChange={this.handleInputChange}
                         />
                     </FormGroup>

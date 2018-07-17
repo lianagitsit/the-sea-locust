@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Routes from "./Routes";
 import { Auth } from "aws-amplify";
 
