@@ -6,6 +6,7 @@ import AppliedRoute from "./components/AppliedRoute";
 import Home from "./pages/Home";
 import Course from "./pages/Course";
 import Background from "./pages/Background";
+import FAQ from "./pages/FAQ";
 import Testimonials from "./pages/Testimonials";
 import Enroll from "./pages/Enroll";
 import EnrollSuccess from "./pages/EnrollSuccess";
@@ -18,6 +19,7 @@ export default ({ childProps }) =>
     <Route exact path="/" component={Home} />
     <Route exact path="/course" component={Course} />
     <Route exact path="/background" component={Background} />
+    <Route exact path="/FAQ" component={FAQ} />
     <Route exact path="/testimonials" component={Testimonials} />
     <Route exact path="/enroll" component={Enroll} />
     <Route exact path="/enroll-success" component={EnrollSuccess} />

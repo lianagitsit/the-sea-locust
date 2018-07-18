@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
 
 const Header = props => (
     <Navbar collapseOnSelect>
@@ -13,14 +13,17 @@ const Header = props => (
                 <NavItem eventKey={1} href="/">
                     Home
                 </NavItem>
-                <NavItem eventKey={2} href="/course">
-                    The Course
-                </NavItem>
-                <NavItem eventKey={3} href="/enroll">
+                <NavDropdown eventKey={2} title="The Course">
+                    <MenuItem eventKey={2.1} href="/background">Background</MenuItem>
+                    <MenuItem eventKey={2.2} href="/course">The Course</MenuItem>
+                    {/* <MenuItem eventKey={2.3} href="/cost">Cost</MenuItem> */}
+                </NavDropdown>
+                <NavItem eventKey={3} href="/FAQ">FAQ</NavItem>
+                <NavItem eventKey={4} href="/enroll">
                     Enroll
                 </NavItem>
                 { props.isAuthenticated ? 
-                    <NavItem eventKey={4}>
+                    <NavItem eventKey={5}>
                         <Link to="/admin-portal">Admin Portal</Link>
                     </NavItem> :
                     null
