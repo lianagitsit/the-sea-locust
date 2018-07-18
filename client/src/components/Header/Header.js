@@ -18,14 +18,16 @@ const Header = props => (
                     <MenuItem eventKey={2.2} href="/course">The Course</MenuItem>
                     <MenuItem eventKey={2.3} href="/cost">Cost</MenuItem>
                 </NavDropdown>
-                <NavItem eventKey={3} href="/FAQ">FAQ</NavItem>
-                <NavDropdown eventKey={4} title="About Me">
-                    <MenuItem eventKey={4.2} href="/about">About</MenuItem>
-                    <MenuItem eventKey={4.1} href="/about#writing">Guides & Writings</MenuItem>
+                <NavItem eventKey={3} href="/testimonials">Testimonials</NavItem>
+                <NavItem eventKey={4} href="/FAQ">FAQ</NavItem>
+                <NavDropdown eventKey={5} title="About Me">
+                    <MenuItem eventKey={5.1} href="/about">About</MenuItem>
+                    <MenuItem eventKey={5.2} href="/about#writing">Guides & Writings</MenuItem>
+                    <MenuItem eventKey={5.3} href="/about#contact">Contact</MenuItem>
                 </NavDropdown>
                 <Button bsStyle="success" href="/enroll">Enroll</Button>
                 {props.isAuthenticated ?
-                    <NavItem eventKey={5}>
+                    <NavItem eventKey={6}>
                         <Link to="/admin-portal">Admin Portal</Link>
                     </NavItem> :
                     null

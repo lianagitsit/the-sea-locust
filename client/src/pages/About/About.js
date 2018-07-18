@@ -27,6 +27,9 @@ class About extends Component {
                     <li><a href="http://top-law-schools.com/forums/viewtopic.php?f=3&t=251467">Fall 2015 exam strategy course</a> (out of date info about course offerings)</li>
                     <li><a href="http://top-law-schools.com/forums/viewtopic.php?f=3&t=260350">Spring 2016 exam strategy course</a></li>
                 </ol>
+                <h1 id="contact">Contact</h1>
+                <p>Have questions? Drop me a line at TheSeaLocust@gmail.com</p>
+                <p>You can also give me a call at (929) 249-2680</p>
             </div>
         )
     }

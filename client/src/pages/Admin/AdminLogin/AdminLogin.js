@@ -39,9 +39,7 @@ class AdminLogin extends Component {
 
     render() {
         const { username, password } = this.state;
-
         const { isAuthenticated } = this.props;
-
         const requiredInfo = (username && password);
 
         if (isAuthenticated) {
