@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
 import questions from "../../lib/FAQ-data";
-
+import "./FAQ.css";
 
 class FAQ extends Component {
     renderQuestions = () => {
@@ -13,7 +13,7 @@ class FAQ extends Component {
                     </Panel.Title>
                 </Panel.Heading>
                 <Panel.Collapse>
-                    <Panel.Body>
+                    <Panel.Body className="panel-body">
                         {question.answer}
                     </Panel.Body>
                 </Panel.Collapse>
@@ -26,7 +26,7 @@ class FAQ extends Component {
     render() {
 
         return (
-            <div className="container">
+            <div className="container body-container">
                 <h1>FAQ</h1>
                 {this.renderQuestions()}
             </div>

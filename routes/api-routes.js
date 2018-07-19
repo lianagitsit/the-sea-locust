@@ -37,7 +37,6 @@ module.exports = (app) => {
 
       var sendPromise = new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
 
-      // Handle promise's fulfilled/rejected states
       sendPromise.then(
         function(result) {
           console.log(result.MessageId);
@@ -46,5 +45,16 @@ module.exports = (app) => {
           function(err) {
           console.error(err, err.stack);
         });
-    })   
+    });
+
+    app.delete("/api/students/:id", (req, res) => {
+      db.Student.destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+        .then(function(dbStudent) {
+          res.json(dbStudent);
+        });
+    });
 }

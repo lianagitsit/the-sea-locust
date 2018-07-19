@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Course.css";
 
 const Course = () => (
-  <div className="container">
+  <div className="container body-container">
     <h1 className="courseTitle">The Course</h1>
     <p>The course allows you to master the skills needed for top exam performance, and has been refined each semester for the past 4 years. In that time, it has helped more than 100 students from dozens of law schools.</p>
 

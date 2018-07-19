@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../../utils/API.js"
 import Student from "../../../lib/Student";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 class AdminPortal extends Component {
     state = { students: [] };
@@ -23,6 +23,7 @@ class AdminPortal extends Component {
                     <td>{student.firstExam}</td>
                     <td>{student.referralSource}</td>
                     <td>{student.onTLS}</td>
+                    <td><Button bsStyle="danger" onClick={() => this.deleteStudent(student.id)}>Delete</Button></td>
                 </tr>
             ));
             this.setState({ students: rows });
@@ -30,10 +31,16 @@ class AdminPortal extends Component {
             .catch(err => console.log(err));
     }
 
+    deleteStudent = id => {
+        API.deleteStudent(id).then(res => {
+            console.log(res);
+            this.loadStudents();
+        }).catch(err => console.log(err));
+    }
+
     sendEmail = () => {
         const email = { email: "coelomate@gmail.com" };
         API.sendEmail(email).then(res => {
-            console.log("BACK FROM SENDING EMAIL")
             console.log(res);
         })
             .catch(err => console.log(err));
@@ -44,6 +51,7 @@ class AdminPortal extends Component {
         return (
             isAuthenticated ?
                 <div className="container">
+                    <h1>Admin Dashboard</h1>
                     <Table responsive>
                         <thead>
                             <tr>
@@ -62,8 +70,8 @@ class AdminPortal extends Component {
                             {this.state.students}
                         </tbody>
                     </Table>
-                    <button onClick={handleLogout}>Logout</button>
-                    <button onClick={this.sendEmail}>Send email</button>
+                    <Button bsStyles="info" onClick={handleLogout}>Logout</Button>
+                    {/* <button onClick={this.sendEmail}>Send email</button> */}
                 </div> :
                 <div>You must be logged in to view this page!</div>
         );

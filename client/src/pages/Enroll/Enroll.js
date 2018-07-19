@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import {
+    Form,
     FormGroup,
     FormControl,
     ControlLabel,
@@ -88,11 +89,11 @@ class Enroll extends Component {
         }
 
         return (
-            <div className="container">
+            <div className="container body-container">
                 <h1>Enroll</h1>
-                <form onSubmit={this.handleFormSubmit}>
+                <Form onSubmit={this.handleFormSubmit}>
 
-                    <FormGroup controlId="firstName">
+                    <FormGroup className="form-group" controlId="firstName">
                         <ControlLabel>First name</ControlLabel>
                         <FormControl
                             autoFocus
@@ -104,7 +105,7 @@ class Enroll extends Component {
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="lastName">
+                    <FormGroup className="form-group" controlId="lastName">
                         <ControlLabel>Last name</ControlLabel>
                         <FormControl
                             required
@@ -115,7 +116,7 @@ class Enroll extends Component {
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="email">
+                    <FormGroup className="form-group" controlId="email">
                         <ControlLabel>Email</ControlLabel>
                         <FormControl
                             required
@@ -127,7 +128,7 @@ class Enroll extends Component {
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="phone">
+                    <FormGroup className="form-group" controlId="phone">
                         <ControlLabel>Phone number</ControlLabel>
                         <FormControl
                             required
@@ -140,7 +141,7 @@ class Enroll extends Component {
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="school">
+                    <FormGroup className="form-group" controlId="school">
                         <ControlLabel>Name of law school</ControlLabel>
                         <FormControl
                             required
@@ -151,7 +152,7 @@ class Enroll extends Component {
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="firstExam">
+                    <FormGroup className="form-group" controlId="firstExam">
                         <ControlLabel>Date of first exam</ControlLabel>
                         <FormControl
                             type="date"
@@ -161,7 +162,7 @@ class Enroll extends Component {
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="referralSource">
+                    <FormGroup className="form-group" controlId="referralSource">
                         <ControlLabel>Referral source</ControlLabel>
                         <FormControl
                             type="text"
@@ -172,7 +173,7 @@ class Enroll extends Component {
                         />
                     </FormGroup>
 
-                    <FormGroup controlId="onTLS">
+                    <FormGroup className="form-group" controlId="onTLS">
                         <ControlLabel>TLS username</ControlLabel>
                         <FormControl
                             type="text"
@@ -190,7 +191,7 @@ class Enroll extends Component {
                     >
                         Enroll
                     </Button>
-                </form>
+                </Form>
             </div>
         );
     }

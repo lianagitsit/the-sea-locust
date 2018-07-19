@@ -4,7 +4,7 @@ import { Image, Row, Col } from "react-bootstrap";
 class About extends Component {
     render() {
         return (
-            <div className="container">
+            <div className="container body-container">
                 <h1>About Me</h1>
                 <p>Hello! I’m Eric Mancini (formerly Eric Martin), your relentlessly enthusiastic exam coach. While in law school I was tied for the highest GPA my 1L year at UVA, and for most of the past decade I have posted guides and advice as TheSeaLocust on top-law-schools.com. During law school I was on law review and heavily involved in our law school comedy show. After graduation and before starting this business I was a lawyer in the derivatives and structured products group at Davis Polk & Wardwell LLP in New York City.</p>
                 <p>If you have any questions, just drop me a line at TheSeaLocust@gmail.com.</p>

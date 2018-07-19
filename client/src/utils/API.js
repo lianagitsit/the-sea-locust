@@ -9,5 +9,8 @@ export default {
     },
     sendEmail: function(email) {
         return axios.post("/api/email", email);
+    },
+    deleteStudent: function(id) {
+        return axios.delete("/api/students/" + id);
     }
 }

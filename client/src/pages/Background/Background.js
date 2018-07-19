@@ -10,9 +10,8 @@ const styles = {
 }
 
 const Background = () => (
-  <div className="background__body">
-    <div className="container background-text__container">
-      <h1>Background</h1>
+  <div className="body-container">
+      <h3>More background: how this course can improve your grades</h3>
       <p className="background-text">Law professors notoriously “hide the ball” and don’t make it clear how to succeed on finals, despite the tremendous impact those exams will have on your career. One of my professors likened it to spending a semester reading about the history of swimming and then getting thrown into a pool for a race.</p>
       
       <p className="background-text">Worse still, the curve means you’ll be competing against incredibly smart and motivated peers. When you sit for exams, everyone is going to know the material – as Getting to Maybe says, law school is a place where just knowing the material isn’t enough. To earn top grades, you’ll need to have perfected the skill of applying the law and performing sophisticated legal analysis.</p>
@@ -22,33 +21,20 @@ const Background = () => (
       <p className="background-text">I want to teach you that skill. I want to remove all the noise and uncertainty and mind-games, help you hone the abilities you will need to impress the hell out of your professors, and reap the huge rewards our industry rains on those who ace their exams.</p>
       
       <p className="background-text">The first year of law school is immensely stressful and critical for your future career. Why go it alone?</p>
-    </div>
 
-    <Link to="/course" style={styles.link}>
-      <div className="container-fluid background__container">
-        <div className="container">
-          <p className="learnMore-text">Learn more about course offerings.</p>
-        </div>
-      </div>
+    <Link to="/course">
+          <p>Learn more about course offerings.</p>
     </Link>
 
-    <Link to="/testimonials" style={styles.link}>
-      <div className="container-fluid background__container">
-        <div className="container">
-          <p className="learnMore-text">Read testimonials from prior students.</p>
-        </div>
-      </div>
+    <Link to="/testimonials">
+          <p>Read testimonials from prior students.</p>
     </Link>
 
     <Link to="/enroll" style={styles.link}>
-      <div className="container-fluid background__container">
-        <div className="container">
-          <p className="learnMore-text">Enroll!</p>
-        </div>
-      </div>
+          <p>Enroll!</p>
     </Link>
+    </div>
 
-  </div>
 );
 
 export default Background;

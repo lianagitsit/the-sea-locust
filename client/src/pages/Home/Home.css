@@ -1,6 +1,4 @@
-.home__body {
-    font-family: 'Roboto', sans-serif;
-}
+
 
 .title {
     color: lightsteelblue;
@@ -8,10 +6,6 @@
 
 .welcome-text {
     font-size: 20px;
-}
-
-.welcome-text__container {
-    /* background-color: aliceblue; */
 }
 
 .moreBackground__container {

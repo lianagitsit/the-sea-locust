@@ -18,6 +18,18 @@
   font-size: large;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    background-color: rgb(255, 249, 241);
+    color: #666666;
+}
+
+.body-container {
+  background-color: white;
+  padding: 20px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

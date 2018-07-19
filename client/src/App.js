@@ -34,10 +34,8 @@ class App extends Component {
 
   handleLogout = async event => {
     await Auth.signOut();
-  
     this.userHasAuthenticated(false);
-
-    this.props.history.push("/admin");
+    this.props.history.push("/");
   }
 
   render() {
@@ -50,7 +48,7 @@ class App extends Component {
     return (
       !this.state.isAuthenticating &&
       <div>
-        <Header isAuthenticated={this.state.isAuthenticated} />
+        {!this.state.isAuthenticated && <Header />}
         <Routes childProps={childProps} />
       </div>
     )
